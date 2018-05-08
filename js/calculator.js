@@ -50,6 +50,8 @@ function set(){
   document.getElementById("concFish").innerHTML=round2(concFish())+" mg/kg";
   document.getElementById("BCFtotConc").innerHTML=round2(BCFtotConc())+ " L/kg";
   document.getElementById("BCFfree").innerHTML=round2(BCFfree())+ " L/kg lipid";
+  document.getElementById("BCFfreeWW").innerHTML=round2(BCFfreeWW())+ " L/kg lipid";
+  document.getElementById("BCFtotConcLIP").innerHTML=round2(BCFtotConcLIP())+ " L/kg lipid";
   } else {
   	document.getElementById("output").innerHTML="Error, missing inputs:";
   	let inpts = document.getElementsByClassName("input");
@@ -148,4 +150,12 @@ function BCFtotConc(){
 
 function BCFfree(){
 	return(concFish()/(chemConcinWat()*fracWBL))
+}
+
+function BCFfreeWW(){
+	return(concFish()/(chemConcinWat()))
+}
+
+function BCFtotConcLIP(){
+	return(concFish()/(totAqConc*fracWBL))
 }
